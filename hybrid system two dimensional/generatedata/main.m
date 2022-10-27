@@ -4,7 +4,7 @@ clc;
 global gamma
 gamma=1;
 h=0.01;
-N=3.65e2;
+N=365;
 t=h*((1:N)-1);
 n1=20;
 x0=[linspace(-1,-0.4,n1),linspace(0.4,1,n1),linspace(-1,-0.4,n1),linspace(0.4,1,n1);
@@ -84,46 +84,6 @@ save(path,'Ldata');
 % t1=[t,20];
 % figure;
 % plot(t1,X);
-
-% figure;
-% plot(t(464:667),y1);
-
-% %%% one order derivative
-% x=xv(2,:);
-% xdt=(x(3:end)-x(1:end-2))/(2*h);
-% figure;
-% plot(t(2:end-1),xdt);
-% 
-% ipt=findchangepts(xdt,'MaxNumChanges',3);
-% figure;
-% findchangepts(xdt,'MaxNumChanges',3);
-% 
-
-
-% w=5;
-% b=1/w*ones(1,w);
-% xdt2=filter(b,1,xdt);
-% figure;
-% plot(t(2:end-1),xdt2);
-
-% d1 = designfilt('lowpassiir','FilterOrder',12, ...
-%     'HalfPowerFrequency',0.5,'DesignMethod','butter');
-% xdt3= filtfilt(d1,xdt);
-% figure;
-% plot(t(2:end-1),xdt3);
-
-% %%% two order derivative
-% xdtdt=(x(3:end)+x(1:end-2)-2*x(2:end-1))/(h^2);
-% figure;
-% plot(t(2:end-1),xdtdt);
-
-% xdtdt2=filter(b,1,xdtdt);
-% figure;
-% plot(t(2:end-1),xdtdt2);
-
-% xdtdt3= filtfilt(d1,xdtdt);
-% figure;
-% plot(t(2:end-1),xdtdt3);
 
 % figure;
 % plot([0,0.5],[-1,-1]);

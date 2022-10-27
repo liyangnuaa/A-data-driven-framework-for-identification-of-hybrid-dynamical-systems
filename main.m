@@ -7,8 +7,8 @@ h=0.01;
 N=2e3;
 t=h*((1:N)-1);
 x=zeros(1,N);
-x(1)=5;
-S=1;
+x(1)=1.5;
+S=2;
 t0=0;
 sigma=0;
 
@@ -53,30 +53,10 @@ save(path,'xdata');
 path = sprintf('iptdata.mat');
 save(path,'iptdata');
 
-% w=5;
-% b=1/w*ones(1,w);
-% xdt2=filter(b,1,xdt);
-% figure;
-% plot(t(2:end-1),xdt2);
-
-% d1 = designfilt('lowpassiir','FilterOrder',12, ...
-%     'HalfPowerFrequency',0.5,'DesignMethod','butter');
-% xdt3= filtfilt(d1,xdt);
-% figure;
-% plot(t(2:end-1),xdt3);
-
 %%% two order derivative
 xdtdt=(x(3:end)+x(1:end-2)-2*x(2:end-1))/(h^2);
 figure;
 plot(t(2:end-1),xdtdt);
-
-% xdtdt2=filter(b,1,xdtdt);
-% figure;
-% plot(t(2:end-1),xdtdt2);
-
-% xdtdt3= filtfilt(d1,xdtdt);
-% figure;
-% plot(t(2:end-1),xdtdt3);
 
 % figure;
 % plot([0,20],[6,6]);
